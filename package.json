@@ -1,0 +1,27 @@
+
+{
+  "name": "sides-menu",
+  "description": "Navigation menus from all sides with smooth code and small size, It helps you in your next projects.",
+  "version": "1.0.3",
+  "author": {
+    "name": "Abdelhak Lallouche"
+  },
+  "contributors": [{
+    "name": "Abdelhak Lallouche",
+    "username": "@abdlhaklalouche",
+    "email": "abdlhaklalouche@gmail.com"
+  }],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abdlhaklalouche/sides-menu"
+  },
+  "bugs": {
+    "url": "https://github.com/abdlhaklalouche/sides-menu/issues"
+  },
+  "keywords": [
+    "side-menu",
+    "slide-menu",
+    "sides-menu"
+  ],
+  "license": "MIT"
+}

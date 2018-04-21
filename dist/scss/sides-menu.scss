@@ -1,0 +1,180 @@
+/* 
+ * Sides-menu
+ * Copyright 2018
+ * Author Name: Abdelhak Lallouche
+ * Author Username: @abdlhaklallouche
+ * Author Email: abdlhaklalouche@gmail.com
+ * Licensed under MIT (https://github.com/abdlhaklallouche/sides-menu/LICENSE)
+ */
+
+$default-width: 300px; // Default width of the slide menu.
+
+$default-z-index: 1010; // Default z-index of the overlay.
+
+$overlay-opacity: 0.4;  // Overlay opacity.
+
+$overlay-bgcolor: rgba(0, 0, 0, $overlay-opacity);  // Overlay background color with rgba system.
+
+$transition-time: 0.5s; // Time of the slide menu.
+
+//Mixin transition with prefixes
+@mixin transition($params...) {
+	-webkit-transition: $params;
+	   -moz-transition: $params;
+	    -ms-transition: $params;
+	     -o-transition: $params;
+			transition: $params;
+}
+
+// Mixin box-shadow with prefixes
+@mixin box-shadow($params...) {
+	-webkit-box-shadow: $params;
+	   -moz-box-shadow: $params;
+	    -ms-box-shadow: $params;
+	     -o-box-shadow: $params;
+			box-shadow: $params;
+}
+
+.sides-menu-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: $overlay-bgcolor;
+	z-index: $default-z-index;
+	visibility: hidden;
+
+	.sides-menu-nav-content {
+		position: absolute;
+		top: 0;
+		left: -$default-width;
+		bottom: 0;
+		width: $default-width;
+		background-color: white;
+		z-index: 2;
+		overflow-x: hidden; 
+		overflow-y: auto;
+		@include transition(all $transition-time);
+		@include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.5));
+
+		&.full {
+			left: -100%;
+			width: 100%;
+		}
+	}
+
+	&.show {
+		visibility: visible;
+
+		.sides-menu-nav-content {
+			left: 0;
+			right: auto;
+		}
+	}
+
+	&.left {
+		.sides-menu-nav-content {
+			left: -$default-width;
+			right: auto;
+
+			&.full {
+				left: -100%;
+			}
+		}
+
+		&.show {
+			.sides-menu-nav-content {
+				left: 0;
+				right: auto;
+			}
+		}
+	}
+
+	&.right {
+		.sides-menu-nav-content {
+			right: -$default-width;
+			left: auto;
+
+			&.full {
+				right: -100%;
+			}
+		}
+
+		&.show {
+			.sides-menu-nav-content {
+				right: 0;
+				left: auto;
+			}
+		}
+	}
+
+	&.top {
+		.sides-menu-nav-content {
+			top: -100%;
+			bottom: auto;
+			height: 100%;
+		}
+
+		&.show {
+			.sides-menu-nav-content {
+				top: 0;
+			}
+		}
+
+		&.right {
+			.sides-menu-nav-content {
+				left: auto;
+			}
+		}
+
+
+		&:not(.both) {
+			.sides-menu-nav-content {
+				left: 0;
+			}
+
+			&.right {
+				.sides-menu-nav-content {
+					right: 0;
+					left: auto;
+				}
+			}
+		}
+	}
+
+
+	&.bottom {
+		.sides-menu-nav-content {
+			bottom: -100%;
+			top: auto;
+			height: 100%;
+		}
+
+		&.show {
+			.sides-menu-nav-content {
+				bottom: 0;
+			}	
+		}
+
+		&.right {
+			.sides-menu-nav-content {
+				left: auto;
+			}
+		}
+
+		&:not(.both) {
+			.sides-menu-nav-content {
+				left: 0;
+			}
+
+			&.right {
+				.sides-menu-nav-content {
+					right: 0;
+					left: auto;
+				}
+			}
+		}
+	}
+
+}
