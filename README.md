@@ -15,7 +15,7 @@ Sides-menu is a small project allows you to add menus easily from all sides to m
 
 ## Installation
 
-via npm package manager
+via npm
 
 ```sh
 $ npm install sides-menu
